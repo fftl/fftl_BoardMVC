@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="board_id"><!-- insert하고난 map에 board_id가 들어있는 이유 useGeneratedKeys, keyProperty -->
+		<![CDATA[
+		insert into board
+		(title, content, nickname, view)
+		values
+		(#{title}, #{content}, #{nickname}, 0);
+		]]>
+	</insert>
+	
+	<select id="select_detail" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+		select *
+		from board
+		where board_id = #{boardId}
+		]]>
+	</select>
+	
+</mapper>
