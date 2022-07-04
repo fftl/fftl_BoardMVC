@@ -14,10 +14,10 @@
 	<p>닉네임 : ${ data.nickname }</p>
 	<p>작성시간 : <fmt:formatDate value="${data.insert_date}" pattern="yyyy.MM.dd"/></p>	
 	<p>내용 : ${ data.content}</p>
-	<p><a href="update?boardId=${boardId}">수정</a></p>
+	<p><a href="update?boardId=${data.board_id}">수정</a></p>
 	
 	<form method="POST" action="/delete">
-		<input type="hidden" name="boardId" value="${boardId}"/>
+		<input type="hidden" name="boardId" value="${data.board_id}"/>
 		<input type="submit" value="삭제" />
 	</form>
 	

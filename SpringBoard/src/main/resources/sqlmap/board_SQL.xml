@@ -19,4 +19,34 @@
 		]]>
 	</select>
 	
+	<update id="update_view" parameterType="hashMap">
+		<![CDATA[
+		update board set view = view+1 where board_id = #{boardId}
+		]]>
+	</update>
+	
+	<update id="update_board" parameterType="hashMap">
+		<![CDATA[
+		update board set 
+		title = #{title},
+		content = #{content},
+		nickname = #{nickname}
+		where board_id = #{boardId}
+		]]>
+	</update>
+	 
+	<select id="select_all" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+		select *
+		from board
+		]]>
+	</select>
+	
+	<delete id="delete" parameterType="hashMap">
+		<![CDATA[
+		delete from board
+		where board_id = #{boardId}
+		]]>
+	</delete>
+	
 </mapper>
